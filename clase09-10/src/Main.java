@@ -10,9 +10,21 @@ void main() {
             .forEach(System.out::println);*/
 
 
-    productos.stream()
+    /*productos.stream()
             .filter(p -> p.stock() > 0)
             .map(p -> p.nombre().toUpperCase())
-            .forEach(System.out::println);
+            .forEach(System.out::println);*/
+
+
+
+    //Ejercicio 2
+    //Ordenar los objectos de productos del precio más bajo al más alto
+    //Metodo por referecia Producto :: precio
+    productos.stream()
+            .sorted(Comparator.comparing(Producto :: precio).reversed()).forEach(producto -> System.out.println("Precio: " + producto.precio()));
+
 }
+
+
+
 
