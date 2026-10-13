@@ -31,6 +31,17 @@ void main() {
                             .thenComparing(Producto::precio)
             )
             .forEach(System.out::println);
+    //Ejercicio4Arroz
+    double totalInventario = DatosPrueba.PRODUCTOS.stream().mapToDouble(p -> p.precio()*p.stock()).sum();
+    System.out.println("TOTAL INVENTARIO: " + totalInventario);
+
+    //Ejercicio5Arroz
+    DatosPrueba.FACTURAS.forEach
+            (factura ->
+            {double total = factura.detalles().stream()
+                    .mapToDouble(DetalleDeFactura::subtotal).sum();
+                System.out.println("TOTAL FACTURA Q: " + total);
+    });
 
 }
 
