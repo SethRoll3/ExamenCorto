@@ -20,8 +20,17 @@ void main() {
     //Ejercicio 2
     //Ordenar los objectos de productos del precio más bajo al más alto
     //Metodo por referecia Producto :: precio
+    /*productos.stream()
+            .sorted(Comparator.comparing(Producto :: precio).reversed()).forEach(producto -> System.out.println("Precio: " + producto.precio()));*/
+
+
+    // Ejercicio3: Ordenar por stock descendente. Si hay empate, por menor precio.
     productos.stream()
-            .sorted(Comparator.comparing(Producto :: precio).reversed()).forEach(producto -> System.out.println("Precio: " + producto.precio()));
+            .sorted(
+                    Comparator.comparing(Producto::stock, Comparator.reverseOrder())
+                            .thenComparing(Producto::precio)
+            )
+            .forEach(System.out::println);
 
 }
 
